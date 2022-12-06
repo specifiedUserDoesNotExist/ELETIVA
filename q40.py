@@ -39,34 +39,43 @@ a = {
 	600: "seiscentos",
 	700: "setecentos",
 	800: "oitocentos",
-	900: "novecentos",
-	1000: "mil"
+	900: "novecentos"
 }
 
-texto = ""
+while True:
+	texto = ""
 
-numero = int(input("Digite um número: "))
+	numero = int(input("Digite um número [0 (zero) para finalizar]: "))
 
-unidade = numero%10
-dezena = numero%100//10
-centena = numero%1000//100
-unidadeMilhar = numero//1000
+	unidade = numero%10
+	dezena = numero%100//10
+	centena = numero%1000//100
+	unidadeMilhar = numero//1000
 
-if dezena <= 1:
-	texto = a[dezena*10+unidade]
-else:
-	texto = a[dezena*10]+" e " + a[unidade]
+	if numero > 1000:
+		print("Error! Escolha um número inteiro de 1 a 1000!")
+		continue
+	elif numero == 0:
+		print("Até a próxima!")
+		break
 
-if unidadeMilhar > 0:
-	if centena > 0:
-		texto = "mil, " + a[centena*100]+ " e " + texto
+	if dezena <= 1:
+		texto = a[dezena*10+unidade]
 	else:
-		texto = "mil" + " e " + texto
-else:
-	if centena > 0:
-		texto = a[centena*100]+ " e " + texto
+		texto = a[dezena*10]+" e " + a[unidade]
 
-if numero == 100:
-	texto = "cem"
+	if unidadeMilhar == 1:
+		if centena > 0:
+			texto = "mil, " + a[centena*100]+ " e " + texto
+		else:
+			texto = "mil" + " e " + texto
+	else:
+		if centena > 0:
+			texto = a[centena*100]+ " e " + texto
 
-print(texto)	
+	if numero == 100:
+		texto = "cem"
+	if numero == 1000:
+		texto = "mil"
+
+	print(texto)	
