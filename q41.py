@@ -3,9 +3,9 @@ Faça um programa que leia três valores (A, B, C) e mostre-os na ordem lida. Em
 """
 
 
-a = input("digite o primeiro numero");
-b = input("digite o segundo numero");
-c = input("digite o terceiro numero");
+a = int(input("digite o primeiro numero"))
+b = int(input("digite o segundo numero"))
+c = int(input("digite o terceiro numero"))
 
 maior = 0;
 meio = 0;
