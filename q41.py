@@ -3,40 +3,42 @@ Faça um programa que leia três valores (A, B, C) e mostre-os na ordem lida. Em
 """
 
 
-a = int(input("digite o primeiro numero"))
-b = int(input("digite o segundo numero"))
-c = int(input("digite o terceiro numero"))
+a = int(input("digite o primeiro numero: "))
+b = int(input("digite o segundo numero: "))
+c = int(input("digite o terceiro numero: "))
 
-maior = 0;
-meio = 0;
-menor = 0;
+maior = 0
+meio = 0
+menor = 0
 
 
-if a > b and a > c:
-    maior = a
-elif b > a and b > c:
-    maior = b
-elif c > a and c > b:
-    maior = c
-    
-
-if a < b and a < c:
-    menor = a
-elif b < a and b < c:
-    menor = b
-elif c < a and c < b:
-    menor = c
-    
-if a != menor and b != maior:
-    meio = c
-elif a != menor and c != maior:
-    meio = b
+if a >= b >= c:
+	maior = a
+	meio = b
+	menor = c
+elif a >= c >= b:
+	maior = a
+	meio = c
+	menor = b
+elif b >= c >= a:
+	maior = b
+	meio = c
+	menor = a
+elif b >= a >= c:
+	maior = b
+	meio = a
+	menor = c
+elif c >= a >= b:
+	maior = c
+	meio = a
+	menor = b
 else:
-    meio = a
-    
-    
-print(a,b,c)
-    
-print(maior, meio, menor)
+	maior = c
+	meio = b
+	menor = a
 
-print(menor, meio, maior)
+print("Os números: %d %d %d" %(a,b,c))
+
+print("Em ordem decrescente: %d %d %d" %(maior, meio, menor))
+
+print("Em ordem crescente: %d %d %d" %(menor, meio, maior))
